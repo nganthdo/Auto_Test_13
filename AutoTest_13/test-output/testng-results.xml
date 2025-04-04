@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-04T11:46:18 GMT+07:00" name="Default suite" finished-at="2025-04-04T11:46:28 GMT+07:00" duration-ms="9593">
+    <groups>
+    </groups>
+    <test started-at="2025-04-04T11:46:18 GMT+07:00" name="Default test" finished-at="2025-04-04T11:46:28 GMT+07:00" duration-ms="9593">
+      <class name="automation.testsuite.Logout_Test">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:automation.testsuite.Logout_Test@932bc4a]" started-at="2025-04-04T11:46:18 GMT+07:00" name="openBrowser" finished-at="2025-04-04T11:46:22 GMT+07:00" duration-ms="4122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="LogoutSuccessfully()[pri:0, instance:automation.testsuite.Logout_Test@932bc4a]" started-at="2025-04-04T11:46:22 GMT+07:00" name="LogoutSuccessfully" finished-at="2025-04-04T11:46:28 GMT+07:00" duration-ms="5259" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogoutSuccessfully -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:automation.testsuite.Logout_Test@932bc4a]" started-at="2025-04-04T11:46:28 GMT+07:00" name="closeBrowser" finished-at="2025-04-04T11:46:28 GMT+07:00" duration-ms="149" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- automation.testsuite.Logout_Test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
