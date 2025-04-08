@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonBase {
@@ -61,6 +62,13 @@ public class CommonBase {
 		WebElement element = getElementPresentDOM(locator);
 		element.clear();
 		element.sendKeys(value);
+	}
+
+	// Thay cho WebElement Select()
+	public void select(By locator, String value) {
+		WebElement element = getElementPresentDOM(locator);
+		Select dropdown = new Select(element);
+		dropdown.selectByVisibleText(value);
 	}
 
 	// Thay cho isDisplayed

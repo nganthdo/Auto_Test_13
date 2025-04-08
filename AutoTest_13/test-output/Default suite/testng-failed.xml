@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="automation.testsuite.Login_Test">
+      <class name="automation.testsuite.Search_Test">
         <methods>
-          <include name="LoginSuccessfully"/>
+          <include name="searchSuccessfully"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- automation.testsuite.Login_Test -->
+      </class> <!-- automation.testsuite.Search_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
