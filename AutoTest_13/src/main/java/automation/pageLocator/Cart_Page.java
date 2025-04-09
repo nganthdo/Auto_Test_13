@@ -23,6 +23,11 @@ public class Cart_Page extends CommonBase {
 		click(By.xpath("//a[text()=' Products']"));
 
 	}
+	
+	public void navigateToCartPage() {
+		click(By.xpath("//a[text()=' Cart']"));
+
+	}
 
 	public void addToCartFunction(String productId) {
 
@@ -42,5 +47,42 @@ public class Cart_Page extends CommonBase {
 		click(By.xpath("//u[text() = 'View Cart']"));
 
 	}
+	
+	public void viewDetailProduct() {
+		click(By.xpath("(//a[text()='View Product'])[1]"));
+	}
+	
+	public void addToCartByIncreasingQty(String productQty) {
+		type(By.id("quantity"),productQty);
+		click(By.xpath("//button[contains(normalize-space(),'Add to cart')]"));
+		
+	}
+	
+	public void clickProceedToCheckout() {
+		click(By.xpath("//a[text()='Proceed To Checkout']"));
+		
+	}
+	
+	public void clickRegisterInCheckout() {
+		click(By.xpath("//u[text()='Register / Login']"));
+	}
+	
+	public void enterCheckoutInformation(String checkoutMsg) {
+		type(By.name("message"),checkoutMsg);
+		click(By.xpath("//a[text()='Place Order']"));
+	}
+	
+	public void enterPaymentDetails(String cardName, String cardNumber, String cvc, String expMonth, String expYear) {
+		type(By.name("name_on_card"),cardName);
+		type(By.name("card_number"),cardNumber);
+		type(By.name("cvc"),cvc);
+		type(By.name("expiry_month"),expMonth);
+		type(By.name("expiry_year"),expYear);
+
+		
+		click(By.id("submit"));
+	}
+	
+	
 
 }

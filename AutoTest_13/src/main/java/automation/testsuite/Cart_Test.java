@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 import automation.common.CommonBase;
 import automation.constant.CT_PageURL;
 import automation.pageLocator.Cart_Page;
+import automation.pageLocator.Register_Page;
 
 public class Cart_Test extends CommonBase {
 
@@ -45,6 +46,7 @@ public class Cart_Test extends CommonBase {
 		}
 	}
 
+	// Test Case 12: Add Products in Cart
 	@Test
 	public void addToCartSuccessfully() {
 		Cart_Page cart = new Cart_Page(driver);
@@ -61,6 +63,63 @@ public class Cart_Test extends CommonBase {
 		cart.clickViewCart();
 		verifyProductListInCart();
 		verifyProductInformationInCart();
+
+	}
+
+	// Test Case 13: Verify Product quantity in Cart
+	@Test
+	public void verifyProductQtyInCart() {
+		Cart_Page cart = new Cart_Page(driver);
+		cart.navigateToProductPage();
+
+		cart.viewDetailProduct();
+		cart.addToCartByIncreasingQty("4");
+		cart.clickViewCart();
+
+		List<WebElement> cartList = driver.findElements(By.xpath("//tr[contains(@id, 'product')]"));
+		for (WebElement product : cartList) {
+			String productQuantity = product.findElement(By.xpath("//td[@class='cart_quantity']")).getText();
+			System.out.println("Quantity: " + productQuantity);
+			assertEquals("4", productQuantity);
+			assertFalse(productQuantity.isEmpty());
+
+		}
+	}
+
+	// Test Case 14: Place Order: Register while Checkout
+	@Test
+	public void registerWhileCheckoutSuccessfully() {
+		addToCartSuccessfully();
+		Cart_Page cart = new Cart_Page(driver);
+		cart.clickProceedToCheckout();
+		cart.clickRegisterInCheckout();
+
+		Register_Page register = new Register_Page(driver);
+		register.EnterRegisterForm("javaselenium09", "javaselenium09@mailinator.com");
+
+		register.EnterAccountInformation("javaselenium09", "123456", "1", "January", "2000");
+		register.EnterAddressInformation("java", "selenium", "company IUH", "NJ USA", "LA USA", "United States", "Ohio",
+				"New City", "09110", "0123456789");
+		register.RegisterFunction();
+
+		assertTrue(isElementDisplay(By.xpath("//b[text()='Account Created!']")));
+
+		register.ClickContinueBtn();
+
+		assertTrue(isElementDisplay(By.xpath("//a[text()=' Logout']")));
+
+		cart.navigateToCartPage();
+		cart.clickProceedToCheckout();
+		assertTrue(isElementDisplay(By.xpath("//h2[text()='Address Details']")));
+		assertTrue(isElementDisplay(By.xpath("//h2[text()='Review Your Order']")));
+
+		cart.enterCheckoutInformation("Call me before shipping! Thanks");
+		cart.enterPaymentDetails("helena", "4111111111111111", "123", "12", "2027");
+
+		assertTrue(isElementDisplay(By.xpath("//p[text()='Congratulations! Your order has been confirmed!']")));
+
+		register.DeleteAccountFunction();
+		assertTrue(isElementDisplay(By.xpath("//b[text()='Account Deleted!']")));
 
 	}
 
