@@ -17,6 +17,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 
 public class CommonBase {
@@ -25,6 +27,7 @@ public class CommonBase {
 
 	// khởi tạo Chrome Browser
 	public WebDriver initBrowser(String URL) {
+		WebDriverManager.chromedriver().setup(); // tự động tải đúng ChromeDriver
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get(URL);

@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 import automation.common.CommonBase;
 import automation.constant.CT_PageURL;
 import automation.pageLocator.Cart_Page;
+import automation.pageLocator.Login_Page;
 import automation.pageLocator.Register_Page;
 
 public class Cart_Test extends CommonBase {
@@ -120,6 +121,83 @@ public class Cart_Test extends CommonBase {
 
 		register.DeleteAccountFunction();
 		assertTrue(isElementDisplay(By.xpath("//b[text()='Account Deleted!']")));
+
+	}
+
+	// Test Case 15: Place Order: Register before Checkout
+	@Test
+	public void registerBeforeCheckout() {
+
+		Register_Page register = new Register_Page(driver);
+		register.EnterRegisterForm("javaselenium09", "javaselenium09@mailinator.com");
+
+		register.EnterAccountInformation("javaselenium09", "123456", "1", "January", "2000");
+		register.EnterAddressInformation("java", "selenium", "company IUH", "NJ USA", "LA USA", "United States", "Ohio",
+				"New City", "09110", "0123456789");
+		register.RegisterFunction();
+
+		assertTrue(isElementDisplay(By.xpath("//b[text()='Account Created!']")));
+
+		register.ClickContinueBtn();
+
+		assertTrue(isElementDisplay(By.xpath("//a[text()=' Logout']")));
+
+		addToCartSuccessfully();
+		Cart_Page cart = new Cart_Page(driver);
+		cart.clickProceedToCheckout();
+
+		assertTrue(isElementDisplay(By.xpath("//h2[text()='Address Details']")));
+		assertTrue(isElementDisplay(By.xpath("//h2[text()='Review Your Order']")));
+
+		cart.enterCheckoutInformation("Call me before shipping! Thanks");
+		cart.enterPaymentDetails("helena", "4111111111111111", "123", "12", "2027");
+
+		assertTrue(isElementDisplay(By.xpath("//p[text()='Congratulations! Your order has been confirmed!']")));
+
+		register.DeleteAccountFunction();
+		assertTrue(isElementDisplay(By.xpath("//b[text()='Account Deleted!']")));
+
+	}
+
+	// Test Case 16: Place Order: Login before Checkout
+	@Test
+	public void loginBeforeCheckout() {
+
+		Login_Page login = new Login_Page(driver);
+		login.LoginFunction("selpy21@test.com", "123456");
+		assertTrue(isElementDisplay(By.xpath("//a[text()=' Logout']")));
+
+		addToCartSuccessfully();
+		assertTrue(isElementDisplay(By.xpath("//a[text()='Proceed To Checkout']")));
+
+		Cart_Page cart = new Cart_Page(driver);
+		cart.clickProceedToCheckout();
+
+		assertTrue(isElementDisplay(By.xpath("//h2[text()='Address Details']")));
+		assertTrue(isElementDisplay(By.xpath("//h2[text()='Review Your Order']")));
+
+		cart.enterCheckoutInformation("Call me before shipping! Thanks");
+		cart.enterPaymentDetails("helena", "4111111111111111", "123", "12", "2027");
+
+		assertTrue(isElementDisplay(By.xpath("//p[text()='Congratulations! Your order has been confirmed!']")));
+
+//		Register_Page register = new Register_Page(driver);
+//		register.DeleteAccountFunction();
+//		assertTrue(isElementDisplay(By.xpath("//b[text()='Account Deleted!']")));
+
+	}
+
+	// Test Case 17: Remove Products From Cart
+	@Test
+	public void removeProductFromCart() {
+
+		addToCartSuccessfully();
+		Cart_Page cart = new Cart_Page(driver);
+		for (int i = 1; i <= 2; i++) {
+			cart.removeProductInCartFunction(i);
+		}
+
+		assertTrue(isElementDisplay(By.xpath("//b[text()='Cart is empty!']")));
 
 	}
 

@@ -5,8 +5,8 @@
     <classes>
       <class name="automation.testsuite.Cart_Test">
         <methods>
+          <include name="removeProductFromCart"/>
           <include name="openBrowser"/>
-          <include name="registerWhileCheckoutSuccessfully"/>
         </methods>
       </class> <!-- automation.testsuite.Cart_Test -->
     </classes>

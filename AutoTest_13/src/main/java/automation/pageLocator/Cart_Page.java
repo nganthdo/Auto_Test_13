@@ -1,7 +1,6 @@
 package automation.pageLocator;
 
 import java.time.Duration;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +34,7 @@ public class Cart_Page extends CommonBase {
 		hoverToElement(By.xpath("(//div[@class='productinfo text-center'])["+productId+"]"));
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		WebElement addToCartbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='overlay-content']//a[@data-product-id='" +productId+"' and normalize-space(text())='Add to cart']")));
+		WebElement addToCartbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='product-overlay']//a[@data-product-id='" +productId+"' and normalize-space(text())='Add to cart']")));
 		addToCartbtn.click();
 	}
 
@@ -83,6 +82,12 @@ public class Cart_Page extends CommonBase {
 		click(By.id("submit"));
 	}
 	
+	public void removeProductInCartFunction(int productId) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    WebElement removeIcon =	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='cart_quantity_delete' and @data-product-id = '" +productId+ "']")));
+		removeIcon.click();
+	}
 	
 
 }
