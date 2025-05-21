@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="automation.testsuite.Cart_Test">
+      <class name="automation.testsuite.Login_Test">
         <methods>
-          <include name="removeProductFromCart"/>
+          <include name="closeBrowser"/>
+          <include name="LoginUnsuccessfully_IncorredtEmailPassword"/>
+          <include name="LoginSuccessfully"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- automation.testsuite.Cart_Test -->
+      </class> <!-- automation.testsuite.Login_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

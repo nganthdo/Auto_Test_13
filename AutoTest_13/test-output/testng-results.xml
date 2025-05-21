@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-04-09T14:48:04 ICT" name="Default suite" finished-at="2025-04-09T14:48:18 ICT" duration-ms="14035">
+  <suite started-at="2025-05-21T11:46:31 ICT" name="Default suite" finished-at="2025-05-21T11:46:39 ICT" duration-ms="8520">
     <groups>
     </groups>
-    <test started-at="2025-04-09T14:48:04 ICT" name="Default test" finished-at="2025-04-09T14:48:18 ICT" duration-ms="14035">
-      <class name="automation.testsuite.Cart_Test">
-        <test-method is-config="true" signature="openBrowser()[pri:0, instance:automation.testsuite.Cart_Test@65f095f8]" started-at="2025-04-09T14:48:04 ICT" name="openBrowser" finished-at="2025-04-09T14:48:10 ICT" duration-ms="5485" status="PASS">
+    <test started-at="2025-05-21T11:46:31 ICT" name="Default test" finished-at="2025-05-21T11:46:39 ICT" duration-ms="8520">
+      <class name="automation.testsuite.Logout_Test">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:automation.testsuite.Logout_Test@68c72235]" started-at="2025-05-21T11:46:31 ICT" name="openBrowser" finished-at="2025-05-21T11:46:35 ICT" duration-ms="3867" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method signature="removeProductFromCart()[pri:0, instance:automation.testsuite.Cart_Test@65f095f8]" started-at="2025-04-09T14:48:10 ICT" name="removeProductFromCart" finished-at="2025-04-09T14:48:18 ICT" duration-ms="8484" status="PASS">
+        <test-method signature="LogoutSuccessfully()[pri:0, instance:automation.testsuite.Logout_Test@68c72235]" started-at="2025-05-21T11:46:35 ICT" name="LogoutSuccessfully" finished-at="2025-05-21T11:46:39 ICT" duration-ms="4449" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- removeProductFromCart -->
-      </class> <!-- automation.testsuite.Cart_Test -->
+        </test-method> <!-- LogoutSuccessfully -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:automation.testsuite.Logout_Test@68c72235]" started-at="2025-05-21T11:46:39 ICT" name="closeBrowser" finished-at="2025-05-21T11:46:39 ICT" duration-ms="146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- automation.testsuite.Logout_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
